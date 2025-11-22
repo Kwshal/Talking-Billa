@@ -7,6 +7,7 @@ const button = document.querySelector("#send");
 button.addEventListener("click", async () => {
   const userText = input.value.trim();
   chat.appendChild(createMessageLi(userText, "sent"));
+  input.value = "";
   chat.appendChild(createMessageLi("Thinking...", "received"));
   const katText = await askGemini(userText);
   chat.replaceChild(createMessageLi(katText, "received"), chat.lastChild);
