@@ -1,24 +1,20 @@
-import './style.css'
-import javascriptLogo from './javascript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.js'
+import { askGemini } from "./api.js";
 
-document.querySelector('#app').innerHTML = `
-  <div>
-    <a href="https://vite.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-      <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
-    </a>
-    <h1>Hello Vite!</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite logo to learn more
-    </p>
-  </div>
-`
+const input = document.querySelector("#input");
+const chat = document.querySelector("#chat");
+const button = document.querySelector("#send");
 
-setupCounter(document.querySelector('#counter'))
+button.addEventListener("click", async () => {
+  const userText = input.value.trim();
+  chat.appendChild(createMessageLi(userText, "sent"));
+
+  const katText = await askGemini(userText);
+  chat.appendChild(createMessageLi(katText, "received"));
+});
+
+function createMessageLi(message, cls) {
+  const li = document.createElement("li")
+  li.classList.add(cls)
+  li.textContent = message
+  return li
+}
