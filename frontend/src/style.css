@@ -5,6 +5,7 @@
      padding: 0;
      box-sizing: border-box;
 }
+
 body {
      font-family: 'Catamaran', sans-serif;
      background-color: rgb(255, 242, 218);
@@ -21,6 +22,7 @@ body {
      gap: 10px;
      /* border: 1px solid #000; */
 }
+
 h1 {
      width: fit-content;
      background-color: #ffe4b1;
@@ -67,9 +69,11 @@ h1 {
      padding: 10px 15px;
      font-weight: bold;
 }
+
 #input::placeholder {
      color: #504838;
 }
+
 #send {
      height: 50px;
      aspect-ratio: 1;
@@ -78,10 +82,12 @@ h1 {
      cursor: pointer;
      border-radius: 50px;
 }
+
 #send-icon {
      width: 30px;
      height: 50px;
 }
+
 ul {
      width: 100%;
      display: flex;
@@ -109,7 +115,7 @@ li {
      border-bottom: 2px solid #b9a681;
      color: #504838;
      font-weight: bold;
-     
+
 }
 
 .sent {
@@ -117,11 +123,13 @@ li {
      background-color: #ffe4b1;
      border-radius: 20px 20px 5px 20px;
 }
+
 .received {
      align-self: flex-start;
      background-color: #ffe4b1;
      border-radius: 20px 20px 20px 5px;
 }
+
 /* .sent::before {
      content: '◍ ';
 }
